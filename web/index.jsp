@@ -8,25 +8,14 @@
     <script type="text/javascript" src="javascript/util/function.bind.js"></script>
     <script type="text/javascript" src="javascript/util/customevent.js"></script>
     <script type="text/javascript" src="javascript/keyframe.js"></script>
-    <script type="text/javascript" src="javascript/context.js"></script>
+    <script type="text/javascript" src="javascript/context/context.js"></script>
+    <script type="text/javascript" src="javascript/context/menucontext.js"></script>
     <script type="text/javascript" src="javascript/mappings/keyboard.js"></script>
     <script type="text/javascript" src="javascript/init.js"></script>
     <script type="text/javascript">
 
         jQuery(document).ready(function() {
-
-            var index = 0;
-
-            function goUp() {
-                jQuery("li").removeClass("selected").eq(--index).addClass("selected");
-            }
-
-            function goDown() {
-                jQuery("li").removeClass("selected").eq(++index).addClass("selected");
-            }
-
-            KF.push(new Context({"up" : goUp, "down" : goDown}));
-
+            KF.push(new MenuContext(".menu", "li"));
         });
 
     </script>
@@ -35,7 +24,7 @@
 
 <h1>KeyFrame JS Example</h1>
 
-<ul>
+<ul class="menu">
     <li>Menu 1</li>
     <li>Menu 2</li>
     <li>Menu 3</li>
