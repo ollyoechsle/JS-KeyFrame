@@ -10,6 +10,7 @@
     <script type="text/javascript" src="javascript/keyframe.js"></script>
     <script type="text/javascript" src="javascript/context/context.js"></script>
     <script type="text/javascript" src="javascript/context/menucontext.js"></script>
+    <script type="text/javascript" src="javascript/context/focuscontext.js"></script>
     <script type="text/javascript" src="javascript/mappings/keyboard.js"></script>
     <script type="text/javascript" src="javascript/init.js"></script>
     <script type="text/javascript">
@@ -18,9 +19,7 @@
 
             KF.push(new Context({
                 "m" : new MenuContext(".menu", "li"),
-                "/" : function() {
-                    jQuery("#search").focus();
-                }
+                "/" : new FocusContext("#search")
             }));
             
         });

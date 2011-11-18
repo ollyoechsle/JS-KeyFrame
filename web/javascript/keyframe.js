@@ -46,7 +46,7 @@
      * @param action The action string, eg "left" or "enter"
      * @return True, if an action took place
      */
-    KeyFrame.prototype.trigger = function(action) {
+    KeyFrame.prototype.trigger = function(action, event) {
 
         console.log("KeyFrame: triggering action : " + action);
 
@@ -63,9 +63,11 @@
             switch (typeof functionOrContext) {
                 case "object":
                     this.push(functionOrContext);
+                    event.preventDefault();
                     return true;
                 case "function":
                     functionOrContext();
+                    event.preventDefault();
                     return true;
             }
         }

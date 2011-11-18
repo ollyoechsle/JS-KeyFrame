@@ -44,11 +44,7 @@
         }
 
         if (action !== undefined) {
-            actionTookPlace = this.fire("event", action);
-        }
-
-        if (actionTookPlace) {
-            event.preventDefault();
+            actionTookPlace = this.fire("event", action, event);
         }
 
     };
