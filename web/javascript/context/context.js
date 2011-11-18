@@ -3,28 +3,35 @@
     /**
      * Represents a context in which a key mapping performs particular actions
      * @param mapping The mapping of actions to functions
-     * @param onActivate A callback that is executed when the context activates
-     * @param onDeactivate A callback that is executed when the context is deactivated
      */
-    function Context(mapping, onActivate, onDeactivate) {
+    function Context(mapping) {
         this.mapping = mapping;
-        this.onActivate = onActivate;
-        this.onDeactivate = onDeactivate;
     }
 
     Context.prototype.mapping = null;
-    Context.prototype.onActivate = null;
-    Context.prototype.onDeactivate = null;
 
     Context.prototype.trigger = function(action) {
 
         if (this.mapping[action]) {
-            this.mapping[action]();
-            return true;
+            return this.mapping[action];
         } else {
             console.log("Context: nothing matched " + action);
             return false;
         }
+
+    };
+
+    /**
+     * Called when the context becomes active. You may wish to provide some visual cue to the user
+     */
+    Context.prototype.activate = function() {
+        
+    };
+
+    /**
+     * Called when this context is no longer active. You may wish to undo whatever you did in activate.
+     */
+    Context.prototype.deactivate = function() {
 
     };
 

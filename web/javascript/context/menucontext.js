@@ -2,11 +2,9 @@
 
     /**
      * Represents a context for navigating up and down a set of elements
-     * @param onActivate A callback that is executed when the context activates
-     * @param onDeactivate A callback that is executed when the context is deactivated
      */
-    function MenuContext(container, elementSelector, onActivate, onDeactivate) {
-        this.superclass.constructor.call(this, this._generateMapping(), onActivate, onDeactivate);
+    function MenuContext(container, elementSelector) {
+        this.superclass.constructor.call(this, this._generateMapping());
         this._jContainer = jQuery(container);
         this._elementSelector = elementSelector;
     }
@@ -75,6 +73,14 @@
             }
         }
         elements.removeClass("selected").eq(this._index).addClass("selected");
+    };
+
+    MenuContext.prototype.activate = function() {
+        this._jContainer.addClass("activeContext");
+    };
+
+    MenuContext.prototype.deactivate = function() {
+        this._jContainer.removeClass("activeContext");
     };
 
     window.MenuContext = MenuContext;

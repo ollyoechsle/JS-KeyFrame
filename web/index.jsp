@@ -3,7 +3,7 @@
 <head>
     <title>KeyFrame JS Example</title>
     <link rel="stylesheet" href="css/index.css" type="text/css" />
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/ext/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/util/object.extend.js"></script>
     <script type="text/javascript" src="javascript/util/function.bind.js"></script>
     <script type="text/javascript" src="javascript/util/customevent.js"></script>
@@ -15,7 +15,14 @@
     <script type="text/javascript">
 
         jQuery(document).ready(function() {
-            KF.push(new MenuContext(".menu", "li"));
+
+            KF.push(new Context({
+                "m" : new MenuContext(".menu", "li"),
+                "/" : function() {
+                    jQuery("#search").focus();
+                }
+            }));
+            
         });
 
     </script>
@@ -30,6 +37,10 @@
     <li>Menu 3</li>
     <li>Menu 4</li>
 </ul>
+
+<label>
+    <input type="text" name="Search" id="search" />
+</label>
 
 </body>
 </html>

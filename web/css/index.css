@@ -11,3 +11,7 @@ li.selected {
     background: blue;
     color: white;
 }
+
+.activeContext {
+    border: 2px dotted gray;
+}
