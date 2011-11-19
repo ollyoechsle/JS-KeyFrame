@@ -27,7 +27,7 @@
     };
 
     Keyboard.prototype._init = function() {
-        console.log("Initialing the keyboard", this._subscribers);
+        log("Initialing the keyboard", this._subscribers);
         jQuery(document).keydown(this._handleKeyDown.bind(this));
     };
 

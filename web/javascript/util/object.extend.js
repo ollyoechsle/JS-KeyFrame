@@ -6,7 +6,6 @@ Object.extend = function (SubClass, SuperClass) {
     for (var propertyName in superPrototype) {
         if (superPrototype.hasOwnProperty(propertyName)) {
             SubClass.prototype[propertyName] = superPrototype[propertyName];
-            console.log("Inheriting property " + propertyName)
         }
     }
 

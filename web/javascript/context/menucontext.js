@@ -32,8 +32,16 @@
     MenuContext.prototype._generateMapping = function() {
         return {
             "up": this.goUp.bind(this),
-            "down": this.goDown.bind(this)
+            "down": this.goDown.bind(this),
+            "enter": "menuSelected"
         }
+    };
+
+    /**
+     * Gets the current state of the menu context - in this case which element is selected
+     */
+    MenuContext.prototype.getState = function() {
+        return this._jContainer.find(".selected");
     };
 
     /**

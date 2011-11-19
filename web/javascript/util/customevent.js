@@ -8,7 +8,6 @@
      * @constructor
      */
     function CustomEvent() {
-        console.log("Initialising the custom event");
         this._subscribers = [];
     }
 

@@ -1,8 +1,11 @@
 (function(jQuery) {
 
     function KeyFrame() {
+        this.superclass.constructor.call(this);
         this._contextStack = [];
     }
+
+    Object.extend(KeyFrame, CustomEvent);
 
     KeyFrame.prototype._contextStack = null;
 
@@ -48,7 +51,7 @@
      */
     KeyFrame.prototype.trigger = function(action, event) {
 
-        console.log("KeyFrame: triggering action : " + action);
+        log("KeyFrame: triggering action : " + action);
 
         if (action == "esc") {
             this.pop();
@@ -57,9 +60,8 @@
         var context = this._getCurrentContext();
 
         if (context) {
-            console.log("Triggering on context " + context);
+            log("Triggering on context " + context);
             var functionOrContext = context.trigger(action);
-            var type = typeof functionOrContext;
             switch (typeof functionOrContext) {
                 case "object":
                     this.push(functionOrContext);
@@ -68,6 +70,10 @@
                 case "function":
                     functionOrContext();
                     event.preventDefault();
+                    return true;
+                case "string":
+                    log("Firing: " + functionOrContext, context.getState());
+                    this.fire(functionOrContext, context.getState());
                     return true;
             }
         }

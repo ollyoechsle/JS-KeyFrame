@@ -1,9 +1,8 @@
-<!--
-From the JS-Build-Tools project
-https://github.com/moxiecode/js-build-tools
--->
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="JS-KeyFrame" default="build" basedir=".">
+
+    <!-- From the JS-Build-Tools project -->
+    <!-- https://github.com/moxiecode/js-build-tools -->
 
     <!-- Setup classpath for js-build-tools ant tasks -->
     <path id="js-build-tasks.classpath">

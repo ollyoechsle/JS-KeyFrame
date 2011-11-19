@@ -15,10 +15,17 @@
         if (this.mapping[action]) {
             return this.mapping[action];
         } else {
-            console.log("Context: nothing matched " + action);
+            log("Context: nothing matched " + action);
             return false;
         }
 
+    };
+
+    /**
+     * Gets the current state of the context
+     */
+    Context.prototype.getState = function() {
+        return {};
     };
 
     /**
