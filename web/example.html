@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KeyFrame JS Example</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
+    <script type="text/javascript" src="javascript/ext/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/js-keyframe-min.js"></script>
+    <script type="text/javascript">
+
+        jQuery(document).ready(function() {
+
+            KF.push(new Context({
+                "m" : new MenuContext(".menu", "li"),
+                "/" : new FocusContext("#search")
+            }));
+
+        });
+
+    </script>
+</head>
+<body>
+
+<h1>KeyFrame JS Example</h1>
+
+<ul>
+    <li>Press 'M' or '/' to activate the menu or the search box.</li>
+    <li>Use the arrow keys to go up or down within the menu</li>
+    <li>Press 'ESC' to deactivate either</li>
+</ul>
+
+
+<h2 title="Keyboard Shortcut: M'"><u>M</u>enu</h2>
+
+<ul class="menu">
+    <li>Menu 1</li>
+    <li>Menu 2</li>
+    <li>Menu 3</li>
+    <li>Menu 4</li>
+</ul>
+
+<label for="search"><h2 title="Keyboard Shortcut: /">Search</h2></label>
+<input type="text" name="Search" id="search"/>
+
+</body>
+</html>

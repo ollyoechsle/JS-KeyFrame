@@ -7,8 +7,12 @@ li {
     display: block;
 }
 
+.menu {
+    width: 300px;
+}
+
 .activeContext li.selected {
-    background: blue;
+    background: #6495ed;
     color: white;
 }
 
