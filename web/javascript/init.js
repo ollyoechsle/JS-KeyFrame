@@ -2,7 +2,7 @@
 
     function init() {
 
-        log("Initialising KEYFRAME");
+        log("Initialising JS-KeyFrame");
 
         var
                 keyboard = new Keyboard(),

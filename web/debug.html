@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>KeyFrame JS Example</title>
-    <link rel="stylesheet" href="css/index.css" type="text/css" />
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
     <script type="text/javascript" src="javascript/ext/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/util/console.js"></script>
     <script type="text/javascript" src="javascript/util/object.extend.js"></script>
@@ -22,7 +22,11 @@
                 "m" : new MenuContext(".menu", "li"),
                 "/" : new FocusContext("#search")
             }));
-            
+
+            KF.on("menuSelected", function(elem) {
+                alert("Menu Selected: " + elem.find("a").attr("href"));
+            })
+
         });
 
     </script>
@@ -41,10 +45,10 @@
 <h2 title="Keyboard Shortcut: M'"><u>M</u>enu</h2>
 
 <ul class="menu">
-    <li>Menu 1</li>
-    <li>Menu 2</li>
-    <li>Menu 3</li>
-    <li>Menu 4</li>
+    <li><a href="menu1">Menu 1</a></li>
+    <li><a href="menu1">Menu 2</a></li>
+    <li><a href="menu3">Menu 3</a></li>
+    <li><a href="menu4">Menu 4</a></li>
 </ul>
 
 <label for="search"><h2 title="Keyboard Shortcut: /">Search</h2></label>
