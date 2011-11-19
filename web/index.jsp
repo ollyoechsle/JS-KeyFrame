@@ -4,6 +4,7 @@
     <title>KeyFrame JS Example</title>
     <link rel="stylesheet" href="css/index.css" type="text/css" />
     <script type="text/javascript" src="javascript/ext/jquery.min.js"></script>
+    <% if (request.getParameter("debug") != null) { %>
     <script type="text/javascript" src="javascript/util/object.extend.js"></script>
     <script type="text/javascript" src="javascript/util/function.bind.js"></script>
     <script type="text/javascript" src="javascript/util/customevent.js"></script>
@@ -13,6 +14,9 @@
     <script type="text/javascript" src="javascript/context/focuscontext.js"></script>
     <script type="text/javascript" src="javascript/mappings/keyboard.js"></script>
     <script type="text/javascript" src="javascript/init.js"></script>
+    <% } else { %>
+    <script type="text/javascript" src="javascript/js-keyframe-min.js"></script>
+    <% } %>
     <script type="text/javascript">
 
         jQuery(document).ready(function() {
