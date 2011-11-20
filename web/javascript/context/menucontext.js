@@ -27,21 +27,40 @@
     MenuContext.prototype._index = null;
 
     /**
+     * Any additional actions to perform
+     */
+    MenuContext.prototype._additionalAction = jQuery.noop;
+
+    /**
      * Produces a mapping to go up and down through the list of elements
      */
     MenuContext.prototype._generateMapping = function() {
         return {
             "up": this.goUp.bind(this),
             "down": this.goDown.bind(this),
-            "enter": "menuSelected"
+            "enter": this.onSelected.bind(this)
         }
     };
 
+    MenuContext.prototype.onSelected = function() {
+        var element = this._jContainer.find(".selected");
+        KF.fire("menuSelected", element);
+        this._additionalAction(element);
+    };
+                          
     /**
-     * Gets the current state of the menu context - in this case which element is selected
+     * Makes the menu context trigger an existing event on an element
+     * @param event The event to trigger, eg "click"
+     * @param [selector] A selector to find an event within the menu item
      */
-    MenuContext.prototype.getState = function() {
-        return this._jContainer.find(".selected");
+    MenuContext.prototype.whichTriggers = function(event, selector) {
+
+        this._additionalAction = function(element) {
+            (selector ? element.find(selector) : element).trigger(event);
+        };
+
+        return this;
+        
     };
 
     /**

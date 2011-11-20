@@ -10,12 +10,21 @@
         jQuery(document).ready(function() {
 
             KF.push(new Context({
-                "m" : new MenuContext(".menu", "li"),
+                "m" : new MenuContext(".menu", "li").whichTriggers("click", "a"),
                 "/" : new FocusContext("#search")
             }));
 
             KF.on("menuSelected", function(elem) {
+
                 alert("Menu Selected: " + elem.find("a").attr("href"));
+
+            });
+
+            jQuery(".menu a").click(function(event) {
+
+                alert("Default action on the link triggered" + jQuery(this).attr("href"));
+                event.preventDefault();
+
             })
 
         });
@@ -37,7 +46,7 @@
 
 <ul class="menu">
     <li><a href="menu1">Menu 1</a></li>
-    <li><a href="menu1">Menu 2</a></li>
+    <li><a href="menu2">Menu 2</a></li>
     <li><a href="menu3">Menu 3</a></li>
     <li><a href="menu4">Menu 4</a></li>
 </ul>
